@@ -1,0 +1,16 @@
+{
+  "resources/js/app.js": {
+    "file": "app.DC_FNdk-.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "css": [
+      "app.C8kbjftn.css"
+    ]
+  },
+  "resources/scss/app.scss": {
+    "file": "app.C8kbjftn.css",
+    "src": "resources/scss/app.scss",
+    "isEntry": true
+  }
+}
