@@ -11,13 +11,6 @@
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     </head>
     <body class="home-page">
-
-        <ul>
-            @foreach ($photos as $photo)
-                <li>{{ $photo->title }}</li>
-            @endforeach
-        </ul>
-
         <a href="{{ route('categories.index') }}" class="home-page__link">Look...</a>
     </body>
 </html>
