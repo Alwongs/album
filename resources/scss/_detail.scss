@@ -1,0 +1,40 @@
+@use "variables" as var;
+
+.breadcrumbs {
+    display: flex;
+    height: 54px;
+    align-items: center;
+    gap: 20px;
+    &__link {
+        font-size: 32px;
+        font-weight: 600;
+        color: rgb(10, 112, 180);
+        transition: 0.2s;
+        &:hover {
+            color: rgb(34, 166, 255);
+        }
+    }
+    &__title {
+        font-size: 32px;
+        font-weight: 500;
+        font-style: italic;
+        color: rgb(57, 87, 105);
+    }
+}
+
+.detail__img-block {
+    background-color: rgb(233, 233, 233);
+    height: 600px;
+    border: 3px solid rgb(165, 187, 201);
+    text-align: center;
+    @media (max-width: var.$mobile-max) {     
+        height: 400px;       
+    }   
+    img {
+        height: 100%;
+    }
+}
+.detail__description {
+    font-size: 18px;
+    color: rgb(57, 87, 105);
+}

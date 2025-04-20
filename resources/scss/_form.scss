@@ -1,0 +1,34 @@
+.form {
+    // border: 3px solid green;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-block {
+    border-bottom: 1px solid rgb(46, 74, 117);
+    height: 34px;
+}
+.textarea-block {
+    border: 1px solid rgb(46, 74, 117);
+    height: 150px;
+    textarea {
+        padding: 5px;
+    }
+}
+input, select {
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: rgb(46, 74, 117);
+}
+
+
+.submit-block {
+    // border: 3px solid blue; 
+    display: flex;
+    justify-content: center;
+}

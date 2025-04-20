@@ -1,0 +1,38 @@
+.top-panel {
+    background-color: rgb(95, 125, 138);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    height: 50px;
+    padding: 0 20px;
+}
+.logo {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;    
+}
+.navigation {
+    display: flex;
+    gap: 20px;
+    &__link {
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+}
+.auth {
+    display: flex;
+    gap: 20px;
+    color: #fff;
+    font-size: 20px;
+    letter-spacing: 1px;
+    &__name {
+        color: #fff;
+    }
+    &__logout {
+        color: #fff;
+    } 
+}

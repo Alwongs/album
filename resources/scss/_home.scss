@@ -1,0 +1,14 @@
+.home-page {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid white;
+    background-color: #335d80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    a {
+        color: #fff;
+        font-size: 44px;
+        font-weight: 600;
+    }
+}
