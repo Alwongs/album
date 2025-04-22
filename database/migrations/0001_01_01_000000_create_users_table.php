@@ -14,11 +14,12 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('is_root');
-            $table->string('role', 1);
+            $table->boolean('is_root')->default(false);
+            $table->string('role', 1);  // 'A' - Admin, 'F' - Friends, 'G' - guests
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->bigInteger('followed_id')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

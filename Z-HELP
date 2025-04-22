@@ -49,3 +49,13 @@ css анимация
 
 ссылка на фото
     https://disk.yandex.ru/i/HVf9dKrBtpB8RQ
+
+
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+
+rm -rf storage/framework/cache/*
+rm -rf storage/framework/views/*
+rm -rf bootstrap/cache/*

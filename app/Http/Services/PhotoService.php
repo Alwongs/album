@@ -90,5 +90,33 @@ class PhotoService
             Storage::delete($previewPath);
         }
     }
+
+    public function filterPhotosArray($photos, $userRole = 'A')
+    {
+        if ($userRole == 'A') return $photos;
+
+        $accessTypes = $userRole == 'F' ? ['F', 'G'] : ['G'];
+        $filteredPhotos = [];
+        foreach ($photos as $photo) {
+            if (in_array($photo->access, $accessTypes)) {
+                $filteredPhotos[] = $photo;
+            }
+        }
+        return $filteredPhotos;
+    }
+
+    public function checkPhotoAccess($photo_access, $userRole = 'A')
+    {
+        if ($userRole == 'A') return true;
+        if ($userRole == 'F' && $photo_access != 'A') return true;
+        if ($userRole == 'G' && $photo_access == 'G') return true;
+
+        return false;
+    }
+
+    public function checkIfFollower($photo_user_id, $followed_id)
+    {
+        return $photo_user_id == $followed_id ? true : false;
+    }
 }
 

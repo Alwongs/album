@@ -24,6 +24,7 @@ class UpdatePhotoRequest extends FormRequest
         return [
             'title'        => ['required', 'string', 'max:50'],
             'description'  => ['nullable', 'string'],
+            'access'       => ['required', 'string', 'max:1'],
         ];
     }
 }

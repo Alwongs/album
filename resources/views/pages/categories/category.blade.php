@@ -1,5 +1,7 @@
 <x-app-layout>
 
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
     <x-slot name="header">
         {{ $category->title  }}
     </x-slot>

@@ -13,15 +13,25 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use File;
+use Illuminate\Routing\Controllers\Middleware;
 
-class PhotoController extends Controller
+class PhotoController extends Controller implements \Illuminate\Routing\Controllers\HasMiddleware
 {
     protected $photoService;
+    protected $auth;
 
     public function __construct(PhotoService $photoService)
     {
         $this->photoService = $photoService;
+        $this->auth = Auth::user();
     }
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware(middleware: 'admin', except: ['index', 'show']),
+        ];
+    }    
 
     public function index()
     {
@@ -29,12 +39,20 @@ class PhotoController extends Controller
 
     public function create(Request $request)
     {
+        // if ($this->auth->role != 'A') {
+        //     return view('errors.404');
+        // }
+
         $category = Category::find($request->input('category_id'));
         return view('pages.photos.add', compact('category'));
     }
 
     public function store(StorePhotoRequest $request)
     {
+        // if ($this->auth->role != 'A') {
+        //     return view('errors.404');
+        // }
+
         $data = $request->validated();
         $newImageName = $this->photoService->saveInStorage($request);
         $photo = $this->photoService->prepearData($data, $newImageName);
@@ -50,32 +68,44 @@ class PhotoController extends Controller
 
     public function show(Photo $photo)
     {
+        if (
+            ($photo->user_id != $this->auth->id
+            && !$this->photoService->checkIfFollower($photo->user_id, $this->auth->followed_id))
+            || !$this->photoService->checkPhotoAccess($photo->access, $this->auth->role)
+        ) {
+            return view('errors.404'); 
+        }
+
         return view('pages.photos.photo', compact('photo'));
     }
 
     public function edit(Photo $photo)
     {
+        // if ($this->auth->role != 'A') {
+        //     return view('errors.404');
+        // }
+
         return view('pages.photos.edit', compact('photo'));        
     }
 
-
-
-
-
     public function update(UpdatePhotoRequest $request, Photo $photo)
     {
+        // if ($this->auth->role != 'A') {
+        //     return view('errors.404');
+        // }
+
         $data = $request->validated();  
-        
         $photo->update($data);
+
+        return redirect()->route('categories.show', $photo['category_id']);
     }
-
-
-
-
-
 
     public function destroy(Photo $photo)
     {
+        // if ($this->auth->role != 'A') {
+        //     return view('errors.404');
+        // }
+
         $this->photoService->removeFromStorage($photo);
         $photo->delete();
         return redirect()->back();

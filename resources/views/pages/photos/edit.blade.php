@@ -16,6 +16,10 @@
                     <input class="text-center" type="text" name="title" value="{{ $photo->title }}" placeholder="Title" />
                 </div>
 
+                <div class="input-block">
+                    <input class="text-center" type="text" name="access" value="{{ $photo->access }}" placeholder="Access" />
+                </div>
+
                 <div class="textarea-block">
                     <textarea class="" name="description" value="{{ $photo->description }}" placeholder="Description"></textarea>
                 </div>                

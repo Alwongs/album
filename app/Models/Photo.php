@@ -10,7 +10,7 @@ class Photo extends Model
     /** @use HasFactory<\Database\Factories\PhotoFactory> */
     use HasFactory;
 
-    protected $fillable = ['title', 'user_id', 'category_id', 'photo', 'description'];
+    protected $fillable = ['title', 'user_id', 'category_id', 'photo', 'access', 'description'];
 
     public function category() {
         return $this->belongsTo(Category::class);

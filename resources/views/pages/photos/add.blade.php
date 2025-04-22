@@ -17,11 +17,15 @@
                     <input class="text-center" type="text" name="title" placeholder="Title" />
                 </div>
 
+                <input type="file" name="image" required>
+
+                <div class="input-block">
+                    <input class="text-center" type="text" name="access" placeholder="Access" />
+                </div>
+
                 <div class="textarea-block">
                     <textarea class="" name="description" placeholder="Description"></textarea>
                 </div>                
-
-                <input type="file" name="image" required>
 
                 <div class="submit-block">
                     <input class="btn btn-green" type="submit" value="Save">

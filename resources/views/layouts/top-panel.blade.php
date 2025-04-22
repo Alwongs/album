@@ -1,6 +1,6 @@
 <div class="top-panel">
     <div class="logo">
-        <a href="{{ route('photos.index') }}" class="navigation__link">Home</a>
+        <a href="{{ route('share-link') }}" class="navigation__link">Share</a>
     </div>
     <nav class="navigation">
         <a href="{{ route('categories.index') }}" class="navigation__link">Album</a>    

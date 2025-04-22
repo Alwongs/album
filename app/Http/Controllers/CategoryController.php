@@ -8,20 +8,35 @@ use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Services\PhotoService;
+use Illuminate\Routing\Controllers\Middleware;
 
-class CategoryController extends Controller
+class CategoryController extends Controller implements \Illuminate\Routing\Controllers\HasMiddleware
 {
     protected $photoService;
+    protected $auth;
 
     public function __construct(PhotoService $photoService)
     {
         $this->photoService = $photoService;
+        $this->auth = Auth::user();
+    }
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware(middleware: 'admin', except: ['index', 'show']),
+        ];
     }
 
     public function index()
     {
-        $categories = Category::where('user_id', Auth::id())->orderBy('title', 'ASC')->get();
-        return view('pages.categories.categories', [ 'categories' => $categories]);
+        $userId = $this->auth->followed_id != 0 ? $this->auth->followed_id : $this->auth->id;
+
+        $isAdmin = $this->auth->role == 'A' ? true : false;
+
+        $categories = Category::where('user_id', $userId)->orderBy('title', 'ASC')->get();
+
+        return view('pages.categories.categories', compact('categories', 'isAdmin'));
     }
 
     public function create()
@@ -45,19 +60,27 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        if ($category->user_id != Auth::id()) {
-            return 'Access denied!';
+        if (
+            $category->user_id != $this->auth->id 
+            && !$this->photoService->checkIfFollower($category->user_id, $this->auth->followed_id)
+        ) {
+            return view('errors.404');
         }
+        
+        $isAdmin = $this->auth->role == 'A' ? true : false;
+        if (!$isAdmin) {
+            $category->photos = $this->photoService->filterPhotosArray($category->photos, $this->auth->role);
+        }
+        return view('pages.categories.category', compact('category', 'isAdmin'));
 
-        return view('pages.categories.category', compact('category'));
     }
 
     public function edit(Category $category)
-    {
+    {      
     }
 
     public function update(UpdateCategoryRequest $request, Category $category)
-    {
+    {       
     }
 
     public function destroy(Category $category)
