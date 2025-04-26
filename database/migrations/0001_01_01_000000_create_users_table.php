@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('is_root')->default(false);
-            $table->string('role', 1);  // 'A' - Admin, 'F' - Friends, 'G' - guests
+            $table->string('role', 1)->default('G');  // 'A' - Admin, 'F' - Friends, 'G' - guests
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
