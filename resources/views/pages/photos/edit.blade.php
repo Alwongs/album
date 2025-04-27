@@ -13,15 +13,15 @@
                 @method('PUT')
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="title" value="{{ $photo->title }}" placeholder="Title" />
+                    <input class="text-center" type="text" name="title" value="{{ $photo->title }}" placeholder="Title" required />
                 </div>
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="access" value="{{ $photo->access }}" placeholder="Access" />
+                    <input class="text-center" type="text" name="access" value="{{ $photo->access }}" placeholder="Access" required  />
                 </div>
 
                 <div class="textarea-block">
-                    <textarea class="" name="description" value="{{ $photo->description }}" placeholder="Description"></textarea>
+                    <textarea class="" name="description" placeholder="Description">{{ $photo->description }}</textarea>
                 </div>                
 
                 <div class="submit-block">

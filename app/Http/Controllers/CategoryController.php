@@ -14,11 +14,13 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
 {
     protected $photoService;
     protected $auth;
+    protected $isAdmin;
 
     public function __construct(PhotoService $photoService)
     {
         $this->photoService = $photoService;
         $this->auth = Auth::user();
+        $this->isAdmin = Auth::user()->role == 'A' ? true : false;
     }
 
     public static function middleware(): array
@@ -31,9 +33,7 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
     public function index()
     {
         $userId = $this->auth->followed_id != 0 ? $this->auth->followed_id : $this->auth->id;
-
-        $isAdmin = $this->auth->role == 'A' ? true : false;
-
+        $isAdmin = $this->isAdmin;
         $categories = Category::where('user_id', $userId)->orderBy('title', 'ASC')->get();
 
         return view('pages.categories.categories', compact('categories', 'isAdmin'));
@@ -67,7 +67,7 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
             return view('errors.404');
         }
         
-        $isAdmin = $this->auth->role == 'A' ? true : false;
+        $isAdmin = $this->isAdmin;
         if (!$isAdmin) {
             $category->photos = $this->photoService->filterPhotosArray($category->photos, $this->auth->role);
         }

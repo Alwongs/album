@@ -14,11 +14,11 @@
                 <input type="hidden" name="category_id" value="{{ $category->id }}" />
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="title" placeholder="Title" />
+                    <input class="text-center" type="text" name="title" placeholder="Title" required />
                 </div>
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="access" placeholder="Access" />
+                    <input class="text-center" type="text" name="access" placeholder="Access" required/>
                 </div>
 
                 <input type="file" name="image" required>

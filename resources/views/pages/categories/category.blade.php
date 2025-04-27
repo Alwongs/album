@@ -6,9 +6,11 @@
         {{ $category->title  }}
     </x-slot>
 
-    <div class="btn-block-x-end mb-5">
-        <a href="{{ route('photos.create', ['category_id' => $category->id]) }}" class="btn btn-blue">Add Photo</a>
-    </div>
+    @if($isAdmin)
+        <div class="btn-block-x-end mb-5">
+            <a href="{{ route('photos.create', ['category_id' => $category->id]) }}" class="btn btn-blue">Add Photo</a>
+        </div>
+    @endif
 
     <section class="section">
         <div class="block w-8 category-photos">
@@ -23,6 +25,4 @@
         </div>
     </section>
 
-
-    
 </x-app-layout>

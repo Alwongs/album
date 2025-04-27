@@ -11,7 +11,7 @@
                 @csrf
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="title" placeholder="Year" />
+                    <input class="text-center" type="text" name="title" placeholder="Year" required />
                 </div>
 
                 <div class="submit-block">

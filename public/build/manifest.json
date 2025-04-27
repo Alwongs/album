@@ -1,15 +1,15 @@
 {
   "resources/js/app.js": {
-    "file": "app.D20N1cQx.js",
+    "file": "app.D4xXp-zN.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "app.B3JG6OC3.css"
+      "app.CSjCREqH.css"
     ]
   },
   "resources/scss/app.scss": {
-    "file": "app.B3JG6OC3.css",
+    "file": "app.CSjCREqH.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   }
