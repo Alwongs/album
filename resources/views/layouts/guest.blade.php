@@ -14,12 +14,17 @@
         <!-- Scripts -->
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <body class="body">
+        @isset($header)
+            <header class="header">
+                <h1 class="header__title">
+                    {{ $header }}
+                </h1>
+            </header>
+        @endisset
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                {{ $slot }}
-            </div>
+        <div class="login">
+            {{ $slot }}
         </div>
     </body>
 </html>

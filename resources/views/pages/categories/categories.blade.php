@@ -6,11 +6,11 @@
         {{ __('Years') }}
     </x-slot>
 
-    {{-- @if($isAdmin) --}}
+    @if($isAdmin)
         <div class="btn-block-x-end mb-5">
             <a href="{{ route('categories.create') }}" class="btn btn-blue">Add Year</a>
         </div>
-    {{-- @endif --}}
+    @endif
 
     <section class="section">
         <div class="block w-8 categories">

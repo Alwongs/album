@@ -1,0 +1,60 @@
+.auth-form {
+    color: red;
+}
+
+.auth-form-element {
+    // border: 1px solid red;
+}
+.auth-form-input-block {
+    border-bottom: 1px solid rgb(74, 104, 170);
+    height: 34px;
+
+}
+.auth-form-input {
+    color: red;
+    // border: 1px solid green;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    &:focus {
+        border-bottom: 1px solid rgb(74, 104, 170);    
+    }
+}
+
+.auth-form-input-error {
+    font-size: 14px;
+    color: rgb(165, 0, 0);
+    margin: 5px 0 2px;
+}
+
+.auth-form-btn-block {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.auth-form-remember-input {
+    outline:  1px solid rgb(74, 104, 170);
+    margin-right: 5px;
+}
+
+.auth-form-remember-label {
+    color: rgb(74, 104, 170);
+}
+
+.auth-form-link {
+    font-size: 14px;
+    color: rgb(74, 104, 170);
+}
+
+.auth-form-submit {
+    color: rgb(63, 141, 84);
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        color: rgb(77, 172, 102);
+    }
+}

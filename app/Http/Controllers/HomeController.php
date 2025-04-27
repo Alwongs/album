@@ -11,10 +11,8 @@ use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function index(): View
+    public function index()
     {
-        return view('home', [
-            'data' => 'some data',
-        ]);
+        return redirect()->route('categories.index');
     }
 }

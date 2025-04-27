@@ -1,15 +1,15 @@
 {
   "resources/js/app.js": {
-    "file": "app.DC_FNdk-.js",
+    "file": "app.D20N1cQx.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "app.C8kbjftn.css"
+      "app.B3JG6OC3.css"
     ]
   },
   "resources/scss/app.scss": {
-    "file": "app.C8kbjftn.css",
+    "file": "app.B3JG6OC3.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   }

@@ -23,7 +23,7 @@ class ShareController extends Controller
         $login = 'Fr_' . time();
         $email = $login . $this->emailSuffix;
         $password = 'gf452' . time() + 54613586874 . '45dhy848';
-        $appUrl = config('app.url');
+        // $appUrl = config('app.url');
 
         $user = User::create([
             'name'     => $name,

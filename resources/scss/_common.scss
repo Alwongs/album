@@ -8,7 +8,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
+    padding: 20px 0;
+    margin-bottom: 20px;
     &__title {
         width: fit-content;
         color: rgb(90, 120, 140);
