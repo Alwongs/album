@@ -18,11 +18,11 @@ Route::get('/link-for-friend/{login}/{password}', [ShareController::class, 'logi
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/news', function () {
-    return view('news');
+    return view('pages.news');
 })->name('news');
 
 Route::get('/about', function () {
-    return view('about');
+    return view('pages.about');
 })->name('about');
 
 Route::middleware('auth')->group(function () {
