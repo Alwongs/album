@@ -19,8 +19,8 @@
             </header>
         @endisset
 
-        <div class="login">
+        <main class="login">
             {{ $slot }}
-        </div>
+        </main>
     </body>
 </html>

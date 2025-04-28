@@ -55,7 +55,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
@@ -63,12 +63,15 @@
     position: relative;
     width: 230px;
     height: 170px;
-    // margin-bottom: 20px;
+    @media (max-width: var.$mobile-max) {  
+        width: 120px;
+        height: 90px;
+    } 
     &:hover &__header {
-        opacity: 0.9;
+        opacity: 0.7;
     }  
     &:hover &__footer {
-        opacity: 0.9;
+        opacity: 0.7;
     }  
     &:hover &__img-block::after {
         opacity: 0;
@@ -108,10 +111,14 @@
     }
     &__img-block {
         display: block;
-        width: 230px;
-        height: 170px;
         text-align: center;
         overflow: hidden;
+        width: 230px;
+        height: 170px;
+        @media (max-width: var.$mobile-max) {  
+            width: 120px;
+            height: 90px;
+        }         
         &::after {
             position: absolute;
             left: 0;
