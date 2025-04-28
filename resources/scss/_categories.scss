@@ -64,8 +64,8 @@
     width: 230px;
     height: 170px;
     @media (max-width: var.$mobile-max) {  
-        width: 120px;
-        height: 90px;
+        width: 180px;
+        height: 140px;
     } 
     &:hover &__header {
         opacity: 0.7;
@@ -116,8 +116,8 @@
         width: 230px;
         height: 170px;
         @media (max-width: var.$mobile-max) {  
-            width: 120px;
-            height: 90px;
+            width: 180px;
+            height: 140px;
         }         
         &::after {
             position: absolute;
