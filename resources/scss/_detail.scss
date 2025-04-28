@@ -1,6 +1,7 @@
 @use "variables" as var;
 
 .detail {
+    position: relative;
     &__pagination {
         display: flex;
         justify-content: space-between;
@@ -29,4 +30,46 @@
         }  
     }   
 
+}
+
+.photo-detail-actions-opener {
+    cursor: pointer;
+}
+.photo-detail-actions-modal {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px 2px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 90px;
+    padding: 5px 0;
+    opacity: 0;
+    transition: 0.4s;
+    &._active {
+        opacity: 1;
+    }
+    &__edit, &__delete {
+        padding: 8px 10px;
+        font-size: 16px;
+        width: 100%;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    &__edit {
+        display: block;
+        color: blue;
+        text-align: center;
+        &:hover {
+            background-color: blue;
+            color: white;
+        }
+    }
+    &__delete {
+        color: red;
+        &:hover {
+            background-color: red;
+            color: white;
+        }        
+    }
 }

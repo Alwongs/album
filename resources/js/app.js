@@ -2,6 +2,7 @@ import './bootstrap';
 // import '../scss/app.scss';
 import './menu';
 import './auth';
+import './actions';
 
 import Alpine from 'alpinejs';
 
