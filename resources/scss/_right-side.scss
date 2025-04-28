@@ -1,0 +1,56 @@
+@use "variables" as var;
+
+.right-side {
+    background-color: #4283a1;
+    position: absolute;
+    right: 0;
+    top: -100%;
+    width: 200px;
+    z-index: 1;
+    transition: 0.4s;
+    // @media (max-width: var.$mobile-max) {  
+    //     left: -100%;
+    //     width: 100%;    
+    // }     
+    &._active {
+        top: 0;
+    }
+    &__false-layer {
+        height: 44px;
+    }
+    &__title{
+        letter-spacing: 1px;
+        color: white;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 30px;
+    } 
+    &__bottom-btn-block {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 44px;
+        padding: 0 10px;
+    }    
+    &__close-btn {
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+    }    
+}
+
+
+.auth-navigation {
+
+    &__link {
+        display: block;
+        color: white;
+        font-size: 16px;
+        letter-spacing: 1px;
+        padding: 10px 30px;
+        transition: 0.2s;
+        &:hover {
+            background-color: #509fc4;
+        }
+    } 
+}

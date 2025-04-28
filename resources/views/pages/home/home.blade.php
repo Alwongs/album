@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <x-slot name="header">
-        {{ __("available photos for guests") }}
+        {{ __("Available photos for guests") }}
     </x-slot>
 
     <section class="section">

@@ -1,15 +1,12 @@
 {
   "resources/js/app.js": {
-    "file": "app.D4xXp-zN.js",
+    "file": "app.CV-sUHT0.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "css": [
-      "app.CSjCREqH.css"
-    ]
+    "isEntry": true
   },
   "resources/scss/app.scss": {
-    "file": "app.CSjCREqH.css",
+    "file": "app.DNpgpEKj.css",
     "src": "resources/scss/app.scss",
     "isEntry": true
   }

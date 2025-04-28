@@ -9,13 +9,7 @@ use App\Http\Controllers\ShareController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
-// Route::get('/share-link', [ShareController::class, 'generateAccessLink'])->name('share-link');
 Route::get('/link-for-friend/{login}/{password}', [ShareController::class, 'loginFriend'])->name('link-for-friend');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/news', function () {
     return view('pages.news');

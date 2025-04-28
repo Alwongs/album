@@ -1,29 +1,17 @@
+<div class="top-panel__false-layer mb-1"></div>
+
 <div class="top-panel">
-    <div class="logo">
-        <a href="{{ route('home') }}" class="navigation__link">Home</a>
-    </div>
+    <p id="top-panel-menu-opener" class="top-panel__menu-opener">Menu</p>
 
-    <nav class="navigation">
-        <a href="{{ route('categories.index') }}" class="navigation__link">Album</a>
-        @if(Auth::user() && Auth::user()->is_root)    
-            <a href="{{ route('users.index') }}" class="navigation__link">Users</a>  
+    <p id="top-panel-auth-opener" class="top-panel__auth-opener">
+        @Auth
+            {{ Auth::user()->name }}
+        @else
+            Auth
         @endif
-        <a href="{{ route('about') }}" class="navigation__link">About</a>      
-    </nav>
-
-    @auth
-        <div class="auth">
-            <a class="auth__name" href="{{ route('profile.edit') }}">{{ Auth::user()->name }}</a>
-            <form class="auth__logout" method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a
-                    class="auth__logout"
-                    href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); this.closest('form').submit();"
-                >
-                    {{ __('Logout') }}
-                </a>
-            </form>
-        </div>
-    @endauth
+    </p>
 </div>
+
+@include('layouts.left-side')
+
+@include('layouts.right-side')

@@ -6,7 +6,19 @@
 @use 'offsets';
 @use 'home';
 @use 'top-panel';
+@use 'left-side';
+@use 'right-side';
 @use 'form';
 @use 'categories';
 @use 'users';
 @use 'detail';
+
+// @media (min-width: $desktop-min) and (max-width: $desktop-max) {
+      
+// }     
+// @media (min-width: $tablet-min) and (max-width: $tablet-max) {  
+       
+// }           
+// @media (max-width: $mobile-max) {  
+             
+// } 

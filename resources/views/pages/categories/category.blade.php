@@ -2,15 +2,7 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <x-slot name="header">
-        {{ $category->title  }}
-    </x-slot>
-
-    @if($isAdmin)
-        <div class="btn-block-x-end mb-5">
-            <a href="{{ route('photos.create', ['category_id' => $category->id]) }}" class="btn btn-blue">Add Photo</a>
-        </div>
-    @endif
+    @include('pages.categories.components.header')
 
     <section class="section">
         <div class="block w-8 category-photos">

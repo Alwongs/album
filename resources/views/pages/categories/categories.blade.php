@@ -2,15 +2,13 @@
 
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <x-slot name="header">
-        {{ __('Years') }}
-    </x-slot>
+    <header class="header">
+        <h1>{{ __('Years') }}</h1>
 
-    @if($isAdmin)
-        <div class="btn-block-x-end mb-5">
+        @if($isAdmin)
             <a href="{{ route('categories.create') }}" class="btn btn-blue">Add Year</a>
-        </div>
-    @endif
+        @endif
+    </header>
 
     <section class="section">
         <div class="block w-8 categories">

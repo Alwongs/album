@@ -1,5 +1,7 @@
 import './bootstrap';
-import '../scss/app.scss';
+// import '../scss/app.scss';
+import './menu';
+import './auth';
 
 import Alpine from 'alpinejs';
 

@@ -19,11 +19,13 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
 {
     protected $photoService;
     protected $auth;
+    protected $isAdmin;
 
     public function __construct(PhotoService $photoService)
     {
         $this->photoService = $photoService;
         $this->auth = Auth::user();
+        $this->isAdmin = Auth::user()->role == 'A' ? true : false;
     }
 
     public static function middleware(): array
@@ -76,7 +78,9 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
             return view('errors.404'); 
         }
 
-        return view('pages.photos.photo', compact('photo'));
+        $isAdmin = $this->isAdmin;
+
+        return view('pages.photos.photo', compact('photo', 'isAdmin'));
     }
 
     public function edit(Photo $photo)

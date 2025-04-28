@@ -1,21 +1,21 @@
+@use "variables" as var;
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 main {
     padding: 0 20px;   
 }
+
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    gap: 10px;
     margin-bottom: 20px;
-    &__title {
-        width: fit-content;
-        color: rgb(90, 120, 140);
-        font-size: 38px;
-        font-weight: 700;
-    }
+    @media (max-width: var.$mobile-max) {  
+        flex-direction: column;
+    }     
 }
 
 .section {
@@ -24,6 +24,7 @@ main {
 }
 
 .block {
+    // border: 1px solid red;
     width: 100%;
 }
 .w-1 { width: 100px; }
@@ -36,6 +37,11 @@ main {
 .w-8 { width: 800px; }
 .w-9 { width: 900px; }
 .w-10 { width: 1000px; }
+@media (max-width: var.$mobile-max) {  
+    .w-1, .w-2, .w-3, .w-4, .w-5, .w-6, .w-7, .w-8, .w-9, .w-10 {
+        width: 100%;
+    }
+}   
 
 .text-center {
     text-align: center;
@@ -55,4 +61,27 @@ main {
     border: 2px solid rgb(255, 153, 153);
     background-color: rgb(255, 233, 233);
     color: rgb(228, 28, 28);
+}
+
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    // height: 64px;
+    align-items: center;
+    gap: 10px;
+    &__link {
+        font-size: 28px;
+        font-weight: 600;
+        color: rgb(10, 112, 180);
+        transition: 0.2s;
+        &:hover {
+            color: rgb(34, 166, 255);
+        }
+    }
+    &__title {
+        font-size: 28px;
+        font-weight: 500;
+        font-style: italic;
+        color: rgb(57, 87, 105);
+    }
 }
