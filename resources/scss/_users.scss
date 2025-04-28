@@ -1,3 +1,5 @@
+@use "variables" as var;
+
 .users {
     // display: flex;
     // flex-wrap: wrap;
@@ -36,6 +38,9 @@
         // border: 1px solid green;
         flex: 0 0 180px;
         font-weight: normal;
+        @media (max-width: var.$mobile-max) {  
+            display: none;
+        }         
     }    
     &__del {
         background-color: transparent;

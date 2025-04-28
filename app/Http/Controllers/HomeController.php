@@ -29,4 +29,5 @@ class HomeController extends Controller
         $photos = Photo::whereIn('access', $accessArray)->get();
         return view('pages.home.home', compact('photos'));
     }
+
 }

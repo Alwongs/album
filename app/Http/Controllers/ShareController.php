@@ -19,21 +19,20 @@ class ShareController extends Controller
 
     public function generateAccessLink()
     {
-        $name = 'Friend_' . time();
-        $login = 'Fr_' . time();
-        $email = $login . $this->emailSuffix;
-        $password = 'gf452' . time() + 54613586874 . '45dhy848';
-        // $appUrl = config('app.url');
+        // $name = 'Friend_' . time();
+        // $login = 'Fr_' . time();
+        // $email = $login . $this->emailSuffix;
+        // $password = 'gf452' . time() + 54613586874 . '45dhy848';
 
-        $user = User::create([
-            'name'     => $name,
-            'email'    => $email ,
-            'password' => $password,
-            'role'     => 'F',
-            'followed_id' => $this->auth->id
-        ]);
+        // $user = User::create([
+        //     'name'     => $name,
+        //     'email'    => $email ,
+        //     'password' => $password,
+        //     'role'     => 'F',
+        //     'followed_id' => $this->auth->id
+        // ]);
 
-        return url('/link-for-friend', ['login' => $login, 'password' => $password]);
+        // return url('/link-for-friend', ['login' => $login, 'password' => $password]);
     }
 
     public function loginFriend($login, $password)
@@ -53,7 +52,7 @@ class ShareController extends Controller
 
         if (Auth::attempt($credentials)) {
             Auth::login($user);
-            return redirect(route('home', absolute: false));
+            return redirect(route('categories.index', absolute: false));
         }
     }
 }

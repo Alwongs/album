@@ -1,16 +1,10 @@
 <x-app-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <x-slot name="header">
-        {{ __("User") }}
-    </x-slot>
+    @include('pages.users.components.header')
 
     <section class="section">
         <div class="block w-8">
-            <div class="user-detail-element mb-2">
-                <span class="user-detail-element__key">Name: </span>
-                <span class="user-detail-element__value">{{ $user->name }}</span>
-            </div>
 
             <div class="user-detail-element mb-2">
                 <span class="user-detail-element__key">Email: </span>

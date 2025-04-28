@@ -1,6 +1,15 @@
 @use "variables" as var;
 
-
+.detail {
+    &__pagination {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__description {
+        font-size: 18px;
+        color: rgb(57, 87, 105);        
+    }
+}
 
 .detail__img-block {
     background-color: rgb(233, 233, 233);
@@ -20,8 +29,4 @@
         }  
     }   
 
-}
-.detail__description {
-    font-size: 18px;
-    color: rgb(57, 87, 105);
 }

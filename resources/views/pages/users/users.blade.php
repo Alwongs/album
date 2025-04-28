@@ -1,13 +1,7 @@
 <x-app-layout>
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <x-slot name="header">
-        {{ __('Users') }}
-    </x-slot>
-
-    <div class="btn-block-x-end mb-4">
-        <a href="{{ route('users.create') }}" class="btn btn-blue">Create user and link</a>
-    </div>  
+    @include('pages.users.components.header') 
 
     <section class="section">
         <ul class="block w-6 users">

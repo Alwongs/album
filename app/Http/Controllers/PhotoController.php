@@ -28,6 +28,7 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
         $this->isAdmin = Auth::user()->role == 'A' ? true : false;
     }
 
+
     public static function middleware(): array
     {
         return [
@@ -35,26 +36,21 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
         ];
     }    
 
+
     public function index()
     {
     }
 
+
     public function create(Request $request)
     {
-        // if ($this->auth->role != 'A') {
-        //     return view('errors.404');
-        // }
-
         $category = Category::find($request->input('category_id'));
         return view('pages.photos.add', compact('category'));
     }
 
+
     public function store(StorePhotoRequest $request)
     {
-        // if ($this->auth->role != 'A') {
-        //     return view('errors.404');
-        // }
-
         $data = $request->validated();
         $newImageName = $this->photoService->saveInStorage($request);
         $photo = $this->photoService->prepearData($data, $newImageName);
@@ -68,48 +64,54 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
         return redirect()->route('categories.show', $photo['category_id']);
     }
 
+
     public function show(Photo $photo)
     {
+        $allowedAccesses = $this->photoService->getAllowedAccesses($this->auth->role);
+        $nextPhoto = Photo::where('category_id', $photo->category_id)
+            ->whereIn('access', $allowedAccesses)
+            ->where('id', '>', $photo->id)
+            ->orderBy('id')
+            ->first();
+        $previousPhoto = Photo::where('category_id', $photo->category_id)
+            ->whereIn('access', $allowedAccesses)
+            ->where('id', '<', $photo->id)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $isAccessOkForRole = $this->photoService->checkPhotoAccess($photo->access, $this->auth->role);
+        $isAuthFollower = $this->photoService->checkIfFollower($photo->user_id, $this->auth->followed_id);
+        $isAuthOwner = $photo->user_id == $this->auth->id;
         if (
-            ($photo->user_id != $this->auth->id
-            && !$this->photoService->checkIfFollower($photo->user_id, $this->auth->followed_id))
-            || !$this->photoService->checkPhotoAccess($photo->access, $this->auth->role)
+            (!$isAuthOwner && !$isAuthFollower)
+            || !$isAccessOkForRole
         ) {
             return view('errors.404'); 
         }
 
         $isAdmin = $this->isAdmin;
 
-        return view('pages.photos.photo', compact('photo', 'isAdmin'));
+        return view('pages.photos.photo', compact('isAdmin', 'photo', 'nextPhoto', 'previousPhoto'));
     }
+
 
     public function edit(Photo $photo)
     {
-        // if ($this->auth->role != 'A') {
-        //     return view('errors.404');
-        // }
-
         return view('pages.photos.edit', compact('photo'));        
     }
 
+
     public function update(UpdatePhotoRequest $request, Photo $photo)
     {
-        // if ($this->auth->role != 'A') {
-        //     return view('errors.404');
-        // }
-
         $data = $request->validated();  
         $photo->update($data);
 
         return redirect()->route('categories.show', $photo['category_id']);
     }
 
+
     public function destroy(Photo $photo)
     {
-        // if ($this->auth->role != 'A') {
-        //     return view('errors.404');
-        // }
-
         $this->photoService->removeFromStorage($photo);
         $photo->delete();
         return redirect()->back();

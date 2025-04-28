@@ -118,5 +118,21 @@ class PhotoService
     {
         return $photo_user_id == $followed_id ? true : false;
     }
+
+    public function getAllowedAccesses($role)
+    {
+        $accessArray = ['G'];
+
+        switch ($role) {
+            case 'A':
+                $accessArray = ['A', 'F', 'G'];
+                break;
+            case 'F':
+                $accessArray = ['F', 'G'];
+                break;
+        }
+
+        return $accessArray;
+    }    
 }
 
