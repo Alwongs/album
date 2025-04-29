@@ -20,8 +20,9 @@
     background-color: rgb(255, 243, 173);
     border: 1px solid  rgb(202, 191, 127);
     border-radius: 5px;
-    padding-top: 10px;
-    padding-left: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: 600;
     color: rgb(28, 98, 126);
     cursor: pointer;
