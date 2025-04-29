@@ -10,7 +10,7 @@ main {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
     gap: 10px;
     margin-bottom: 20px;
     // @media (max-width: var.$mobile-max) {  
@@ -71,7 +71,7 @@ main {
     align-items: center;
     gap: 10px;
     &__link {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 600;
         color: rgb(10, 112, 180);
         transition: 0.2s;
@@ -80,7 +80,7 @@ main {
         }
     }
     &__title {
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 500;
         font-style: italic;
         color: rgb(57, 87, 105);

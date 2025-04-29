@@ -2,6 +2,11 @@
     @include('pages.categories.components.breadcrumbs')
 
     @if($isAdmin)
-        <a href="{{ route('photos.create', ['category_id' => $category->id]) }}" class="btn btn-blue">Add Photo</a>
+        <a
+            class="btn btn-blue"
+            href="{{ route('photos.create', ['category_id' => $category->id]) }}"
+        >
+            Add
+        </a>
     @endif
 </header>
