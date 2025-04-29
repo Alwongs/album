@@ -2,9 +2,9 @@
     @include('pages.photos.components.breadcrumbs')
 
     @if($isAdmin)
-        {{-- <a href="{{ route('photos.edit', $photo->id) }}" class="btn btn-blue">Edit</a> --}}
-
-        <p id="photo-detail-actions-opener" class="photo-detail-actions-opener">[actions]</p>
+        <div id="photo-detail-actions-opener" class="photo-detail-actions-opener">
+            <x-icon-actions />
+        </div>
     @endif
 
     <div id="photo-detail-actions-modal" class="photo-detail-actions-modal">
@@ -16,5 +16,6 @@
                 Delete
             </button>
         </form>   
+        <button id="photo-detail-actions-closer" class="photo-detail-actions-modal__cancel">Cancel</button>
     </div>
 </header>

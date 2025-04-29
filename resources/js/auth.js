@@ -11,6 +11,6 @@ if (openAuthBtn) {
 
 if (closeAuthBtn) {
     closeAuthBtn.addEventListener("click", function(e) {
-        rightSide.classList.toggle('_active');
+        rightSide.classList.remove('_active');
     })
 }

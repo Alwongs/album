@@ -33,7 +33,17 @@
 }
 
 .photo-detail-actions-opener {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 22px;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+        background-color: rgb(238, 238, 238);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+    }
 }
 .photo-detail-actions-modal {
     background-color: #fff;
@@ -49,7 +59,7 @@
     &._active {
         opacity: 1;
     }
-    &__edit, &__delete {
+    &__edit, &__delete, &__cancel {
         padding: 8px 10px;
         font-size: 16px;
         width: 100%;
@@ -71,5 +81,12 @@
             background-color: red;
             color: white;
         }        
+    }
+    &__cancel {
+        color: grey;
+        &:hover {
+            background-color: grey;
+            color: white;
+        }  
     }
 }

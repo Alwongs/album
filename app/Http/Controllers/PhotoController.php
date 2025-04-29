@@ -114,6 +114,6 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
     {
         $this->photoService->removeFromStorage($photo);
         $photo->delete();
-        return redirect()->back();
+        return redirect()->route('categories.show', $photo->category_id);
     }
 }

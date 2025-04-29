@@ -11,6 +11,6 @@ if (openMenuBtn) {
 
 if (closeMenuBtn) {
     closeMenuBtn.addEventListener("click", function(e) {
-        leftSide.classList.toggle('_active');
+        leftSide.classList.remove('_active');
     })
 }

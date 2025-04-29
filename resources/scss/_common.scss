@@ -13,10 +13,11 @@ main {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
-    @media (max-width: var.$mobile-max) {  
-        flex-direction: column;
-    }     
+    // @media (max-width: var.$mobile-max) {  
+    //     flex-direction: column;
+    // }     
 }
+
 
 .section {
     display: flex;
@@ -38,7 +39,7 @@ main {
 .w-9 { width: 900px; }
 .w-10 { width: 1000px; }
 @media (max-width: var.$mobile-max) {  
-    .w-1, .w-2, .w-3, .w-4, .w-5, .w-6, .w-7, .w-8, .w-9, .w-10 {
+    .w-4, .w-5, .w-6, .w-7, .w-8, .w-9, .w-10 {
         width: 100%;
     }
 }   
