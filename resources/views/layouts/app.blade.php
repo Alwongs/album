@@ -14,17 +14,15 @@
         <div class="">
             @include('layouts.top-panel')
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="header">
-                    <h1 class="header__title">
-                        {{ $header }}
-                    </h1>
-                </header>
-            @endisset
-
-            <!-- Page Content -->
             <main>
+                @isset($header)
+                    <header class="header">
+                        <h1 class="header__title">
+                            {{ $header }}
+                        </h1>
+                    </header>
+                @endisset
+
                 {{ $slot }}
             </main>
         </div>

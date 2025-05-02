@@ -27,10 +27,10 @@
     color: rgb(28, 98, 126);
     cursor: pointer;
     transition: 0.2s;
-    @media (max-width: var.$mobile-max) {  
-        width: 120px;
-        height: 90px;     
-    } 
+    // @media (max-width: var.$mobile-max) {  
+    //     width: 140px;
+    //     height: 100px;     
+    // } 
     &:hover {
         background-color:  rgb(255, 254, 186);
     }

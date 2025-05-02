@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var.$base-text-color;
 }
 main {
     padding: 0 20px;   
@@ -16,7 +17,10 @@ main {
     margin-bottom: 20px;
     // @media (max-width: var.$mobile-max) {  
     //     flex-direction: column;
-    // }     
+    // }   
+    &__title {
+        font-size: 24px;
+    }  
 }
 
 

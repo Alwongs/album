@@ -2,7 +2,7 @@
     @if($isAdmin)
         <header class="category-photos-item__header">
             <a class="category-photos-item__edit-btn" href="{{ route('photos.edit', $photo->id) }}">Edit</a>
-            <form action="{{ route('photos.destroy', $photo->id) }}" method="POST">
+            <form action="{{ route('photos.destroy', $photo->id) }}" method="POST"  onsubmit="return confirmDelete();">
                 @csrf
                 @method('DELETE')
                 <button class="category-photos-item__del-btn" type="submit">
@@ -28,4 +28,8 @@
     </footer>
 </div>
 
-
+<script>
+    function confirmDelete() {
+        return confirm("Вы уверены, что хотите удалить это фото?");
+    }
+</script>

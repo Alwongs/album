@@ -17,7 +17,7 @@
                     {{ $category->title }}
                     
                     @if($isAdmin)
-                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirmDelete();">
                             @csrf
                             @method('DELETE')
                             <button class="categories-item__del" type="submit">
@@ -29,7 +29,11 @@
             @endforeach
         </div>
     </section>
-
-
     
 </x-app-layout>
+
+<script>
+    function confirmDelete() {
+        return confirm("Вы уверены, что хотите удалить это фото?");
+    }
+</script>

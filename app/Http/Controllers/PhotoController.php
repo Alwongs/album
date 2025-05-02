@@ -44,8 +44,16 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
 
     public function create(Request $request)
     {
+        // TODO: check if auth_id is equal category->user_id
         $category = Category::find($request->input('category_id'));
-        return view('pages.photos.add', compact('category'));
+
+        $accesses = [
+            'A' => 'Admin',
+            'F' => 'Friend',
+            'G' => 'Guest'
+        ];
+
+        return view('pages.photos.add', compact('category', 'accesses'));
     }
 
 

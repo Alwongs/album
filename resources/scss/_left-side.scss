@@ -2,7 +2,7 @@
 
 .left-side {
     z-index: 3;
-    background-color: #4283a1;
+    background-color: #2e5d74;
     position: absolute;
     left: -250px;
     top: 0;
@@ -31,7 +31,7 @@
     &__title{
         text-transform: uppercase;
         letter-spacing: 1px;
-        color: white;
+        color: rgb(235, 235, 235);
         font-size: 20px;
         text-align: center;
         margin-bottom: 30px;
@@ -42,12 +42,13 @@
 
     &__link {
         display: block;
-        color: white;
+        color: rgb(235, 235, 235);
         font-size: 20px;
         letter-spacing: 1px;
         padding: 10px 30px;
+        transition: 0.2s;
         &:hover {
-            background-color: #509fc4;
+            background-color: #337b9e;
         }        
     } 
 }

@@ -11,14 +11,6 @@
         @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     </head>
     <body class="body">
-        @isset($header)
-            <header class="header">
-                <h1 class="header__title">
-                    {{ $header }}
-                </h1>
-            </header>
-        @endisset
-
         <main class="login">
             {{ $slot }}
         </main>
