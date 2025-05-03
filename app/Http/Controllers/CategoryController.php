@@ -76,11 +76,17 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
     }
 
     public function edit(Category $category)
-    {      
+    {
+        return view('pages.categories.edit', compact('category'));   
     }
 
     public function update(UpdateCategoryRequest $request, Category $category)
-    {       
+    {   
+        // TODO: to improve request validation. permit not unique title when updating, 
+        $data = $request->validated();  
+        $category->update($data);
+
+        return redirect()->route('categories.index');            
     }
 
     public function destroy(Category $category)

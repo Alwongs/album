@@ -13,9 +13,12 @@
     <section class="section">
         <div class="block w-8 categories">
             @foreach ($categories as $category)
-                <a href="{{ route('categories.show', $category->id) }}" class="categories-item">
-                    {{ $category->title }}
-                    
+                <div class="categories-item">
+                    <a href="{{ route('categories.show', $category->id) }}" class="categories-item__link">
+                        <div class="categories-item__title">
+                            {{ $category->title }}
+                        </div>
+                    </a>
                     @if($isAdmin)
                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirmDelete();">
                             @csrf
@@ -24,8 +27,11 @@
                                 &times;
                             </button>
                         </form>
+                        <a class="categories-item__edit" href="{{ route('categories.edit', $category->id) }}">
+                            &#9998;
+                        </a>
                     @endif
-                </a>
+                </div>
             @endforeach
         </div>
     </section>
