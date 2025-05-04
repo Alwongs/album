@@ -4,7 +4,7 @@
     </x-slot>
 
     <section class="section">
-        <div class="block w-1">
+        <div class="block w-2">
             <x-input-error class="mb-2" :messages="$errors->all()"/>
 
             <form class="form" action="{{ route('categories.store') }}" method="POST">

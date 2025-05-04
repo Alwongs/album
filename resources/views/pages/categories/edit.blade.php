@@ -5,7 +5,7 @@
     </x-slot>
 
     <section class="section">
-        <div class="block w-3">
+        <div class="block w-2">
             <x-input-error class="mb-2" :messages="$errors->all()"/>
 
             <form class="form" action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">

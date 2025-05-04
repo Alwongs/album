@@ -17,7 +17,16 @@
                 </div>
 
                 <div class="input-block">
-                    <input class="text-center" type="text" name="access" value="{{ $photo->access }}" placeholder="Access" required  />
+                    <select class="text-center" type="text" name="access" placeholder="Access">
+                        @foreach($accesses as $key => $title)
+                            <option
+                                @if($key == $photo->access) selected @endif
+                                value="{{ $key }}"
+                            >
+                                {{ $title }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="textarea-block">

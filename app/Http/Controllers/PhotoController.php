@@ -105,7 +105,13 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
 
     public function edit(Photo $photo)
     {
-        return view('pages.photos.edit', compact('photo'));        
+        $accesses = [
+            'A' => 'Admin',
+            'F' => 'Friend',
+            'G' => 'Guest'
+        ];
+
+        return view('pages.photos.edit', compact('photo', 'accesses'));        
     }
 
 

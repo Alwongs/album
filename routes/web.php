@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/link-for-friend/{login}/{password}', [ShareController::class, 'loginFriend'])->name('link-for-friend');
@@ -20,6 +21,8 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/different-information', [AdminController::class, 'index'])->name('admin');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

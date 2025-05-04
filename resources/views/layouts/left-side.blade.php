@@ -9,9 +9,12 @@
 
     <nav class="left-side__navigation navigation">
         <a href="{{ route('categories.index') }}" class="navigation__link">Album</a>
+        <a href="{{ route('about') }}" class="navigation__link">About</a>  
+        
         @if(Auth::user() && Auth::user()->is_root)    
             <a href="{{ route('users.index') }}" class="navigation__link">Users</a>  
+            <a href="{{ route('admin') }}" class="navigation__link">Administration</a>  
         @endif  
-        <a href="{{ route('about') }}" class="navigation__link">About</a>        
+      
     </nav>
 </aside>
