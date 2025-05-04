@@ -58,7 +58,7 @@ class PhotoService
                 Storage::makeDirectory('images/previews');
             }            
             
-            $image->scale(height: 800);
+            $image->scale(height: 1080);
             $image->save(Storage::path('images/photos/') . $newImageName);
     
             $image->scale(height: 150);
