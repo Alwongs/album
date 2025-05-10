@@ -6,6 +6,10 @@
         display: flex;
         justify-content: space-between;
     }
+    &__pagination-link {
+        display: block;
+        width: 50px;
+    }
     &__description {
         font-size: 18px;
         color: rgb(57, 87, 105);        

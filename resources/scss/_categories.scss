@@ -13,13 +13,15 @@
 }
 
 .categories-item {
+    background-color: rgb(255, 243, 173);
     position: relative;
-    width: 140px;
-    height: 100px;
+    width: 170px;
+    height: 130px;
     box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.3);
     border: 1px solid  rgb(202, 191, 127);
     border-radius: 5px;
-
+    padding: 10px;
+    transition: 0.2s;
     &__link {
         width: 100%;
         height: 100%;
@@ -29,16 +31,14 @@
         align-items: center;
         color: rgb(28, 98, 126);
         cursor: pointer;
-        transition: 0.2s;
     }
     &__title {
         text-align: center;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 600;
     }
-
     &:hover {
-        background-color:  rgb(255, 254, 186);
+        background-color:  rgb(255, 220, 124);
     }
     &__del {
         background-color: transparent;
