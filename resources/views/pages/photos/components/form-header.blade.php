@@ -10,7 +10,7 @@
             @isset($photo)
                 "{{ $photo->title  }}"   
             @else
-                "{{ __("New")  }}"
+                {{ __('New')  }}
             @endisset
         </h3>
     </div>

@@ -16,15 +16,30 @@
     &__false-layer {
         height: 44px;
     }
-    &__menu-opener,
-    &__auth-opener {
-        // text-transform: uppercase;
-        color: #fff;
-        font-size: 18px;
-        // letter-spacing: 1px;
+    &__menu-opener {
+        // border: 1px solid white;
+        width: 24px;
+        line-height: 12px;
         cursor: pointer;
     }
-
+    &__auth-opener {
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    &__auth-label {
+        @media (max-width: var.$mobile-max) {  
+            display: none;
+        }         
+    }
+    &__auth-icon {
+        display: none;
+        @media (max-width: var.$mobile-max) {  
+            display: block;
+        }
+        width: 24px;
+        line-height: 12px;
+    }
 }
 
 
