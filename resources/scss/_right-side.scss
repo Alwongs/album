@@ -29,13 +29,13 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        height: 44px;
-        padding: 0 10px;
+        height: 54px;
+        padding: 0 20px;
     }    
     &__close-btn {
-                // border: 1px solid white;
-                width: 24px;
-                line-height: 10px;
+        // border: 1px solid white;
+        width: 24px;
+        line-height: 10px;
         background-color: transparent;
         color: white;
         cursor: pointer;

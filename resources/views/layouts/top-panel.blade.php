@@ -1,12 +1,19 @@
 <div class="top-panel__false-layer mb-1"></div>
 
 <div class="top-panel">
-    <p id="top-panel-menu-opener" class="top-panel__menu-opener">
+    <div id="top-panel-menu-opener" class="top-panel__menu-opener">
         <x-icon-menu />
-    </p>
+    </div>
 
 
-
+    <div class="top-panel__search">
+        {{-- <div class="top-panel__search-input">
+            <input type="text">
+        </div> --}}
+        <a class="top-panel__search-icon" href="{{ route('search-photos') }}">
+            <x-icon-search />
+        </a>
+    </div>
 
     <div id="top-panel-auth-opener" class="top-panel__auth-opener">
         @Auth

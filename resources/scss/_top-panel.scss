@@ -13,15 +13,35 @@
     border-bottom: 1px solid grey;
     height: 44px;
     padding: 0 20px;
+
+    @media (max-width: var.$mobile-max) {  
+        height: 50px;
+    }
     &__false-layer {
         height: 44px;
+        @media (max-width: var.$mobile-max) {  
+            height: 50px;
+        }        
     }
+    
     &__menu-opener {
         // border: 1px solid white;
         width: 24px;
         line-height: 12px;
         cursor: pointer;
     }
+
+    &__search {
+        display: flex;
+        gap: 5px;
+    }
+    
+    &__search-icon {
+        // border: 1px solid white;
+        width: 26px;
+        line-height: 8px;
+    }
+
     &__auth-opener {
         color: #fff;
         font-size: 18px;
@@ -35,10 +55,10 @@
     &__auth-icon {
         display: none;
         @media (max-width: var.$mobile-max) {  
+            width: 24px;
+            line-height: 12px;
             display: block;
         }
-        width: 24px;
-        line-height: 12px;
     }
 }
 
