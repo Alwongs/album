@@ -1,4 +1,3 @@
-<?xml version="1.0" ?>
 <svg
     id="Layer_1"
     style="enable-background:new 0 0 120 120;"
