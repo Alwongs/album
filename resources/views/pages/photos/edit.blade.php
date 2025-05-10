@@ -1,8 +1,6 @@
 <x-app-layout>
 
-    <x-slot name="header">
-        {{ __('Edit: ') }} {{ $photo->title }}
-    </x-slot>
+    @include('pages.photos.components.form-header')
 
     <section class="section">
         <div class="block w-3">

@@ -9,7 +9,7 @@
 >
     <style type="text/css">
 	    .st0{
-            fill:#386BFF;
+            fill:#4281b4;
         }
     </style>
     <g transform="scale(-1, 1) translate(-100, 0)">

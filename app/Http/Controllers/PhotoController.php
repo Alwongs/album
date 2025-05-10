@@ -111,7 +111,9 @@ class PhotoController extends Controller implements \Illuminate\Routing\Controll
             'G' => 'Guest'
         ];
 
-        return view('pages.photos.edit', compact('photo', 'accesses'));        
+        $category = $photo->category;
+
+        return view('pages.photos.edit', compact('category', 'photo', 'accesses'));        
     }
 
 

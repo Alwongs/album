@@ -4,7 +4,9 @@
             class="detail__pagination-link"
             href="{{ route('photos.show', $previousPhoto->id) }}"
         >
-        <x-icon-arrow-back-blue />
+            <div class="detail__pagination-icon">
+                <x-icon-arrow-back-blue />
+            </div>
         </a>                    
     @else
         <p> </p>
@@ -15,7 +17,9 @@
             class="detail__pagination-link"
             href="{{ route('photos.show', $nextPhoto->id) }}"
         >
-            <x-icon-arrow-forward-blue />
+            <div class="detail__pagination-icon">
+                <x-icon-arrow-forward-blue />
+            </div>
         </a>
     @else
         <p> </p>

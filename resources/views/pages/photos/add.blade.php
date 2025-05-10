@@ -1,8 +1,6 @@
 <x-app-layout>
 
-    <x-slot name="header">
-        {{ __('New photo for album: ') }} <span class="header-param">{{ $category->title }}</span>
-    </x-slot>
+    @include('pages.photos.components.form-header')
 
     <section class="section">
         <div class="block w-3">

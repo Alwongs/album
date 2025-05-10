@@ -7,7 +7,17 @@
         justify-content: space-between;
     }
     &__pagination-link {
+        border: 2px solid #4281b4;
+        border-radius: 5px;
         display: block;
+        width: 80px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__pagination-icon {
+        // border: 3px solid rgb(165, 187, 201);
         width: 50px;
     }
     &__description {

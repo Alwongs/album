@@ -19,27 +19,31 @@
     height: 130px;
     box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.3);
     border: 1px solid  rgb(202, 191, 127);
-    border-radius: 5px;
-    padding: 10px;
-    transition: 0.2s;
+    border-radius: 7px;
     &__link {
         width: 100%;
         height: 100%;
+        padding: 20px;
         background-color: rgb(255, 243, 173);
+        border: 3px solid rgb(255, 243, 173);
+        border-radius: 7px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: rgb(28, 98, 126);
         cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            background-color:  rgb(252, 255, 207);
+            border: 3px solid green;
+        }
     }
     &__title {
         text-align: center;
         font-size: 24px;
         font-weight: 600;
     }
-    &:hover {
-        background-color:  rgb(255, 220, 124);
-    }
+
     &__del {
         background-color: transparent;
         border: none;
