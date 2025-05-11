@@ -1,5 +1,5 @@
 .search-header {
-    border: 1px solid rgb(22, 92, 119);
+    // border: 1px solid rgb(22, 92, 119);
     border-radius: 5px;
     padding: 10px;
     display: flex;
@@ -13,9 +13,9 @@
     gap: 10px;
     width: fit-content;
     &__input-block {
-        border: 1px solid rgb(42, 77, 122);
+        // border: 1px solid rgb(42, 77, 122);
         border-radius: 5px;
-        height: 30px;
+        height: 34px;
         width: 250px;
         input {
             border-radius: 5px;
@@ -27,7 +27,8 @@
         }
     }
     &__btn {
-        border: 1px solid green;
+        border: 2px solid #eee;
+        color: #fff;
         border-radius: 5px;
         padding: 0 10px;
     }
