@@ -43,8 +43,10 @@ main {
 .w-8 { width: 800px; }
 .w-9 { width: 900px; }
 .w-10 { width: 1000px; }
+.w-11 { width: 1100px; }
+.w-12 { width: 1200px; }
 @media (max-width: var.$mobile-max) {  
-    .w-4, .w-5, .w-6, .w-7, .w-8, .w-9, .w-10 {
+    .w-4, .w-5, .w-6, .w-7, .w-8, .w-9, .w-10, .w-11, .w-12 {
         width: 100%;
     }
 }   

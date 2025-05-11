@@ -1,27 +1,15 @@
-<div class="detail__pagination mb-1">
-    @if($previousPhoto)
-        <a
-            class="detail__pagination-link"
-            href="{{ route('photos.show', $previousPhoto->id) }}"
-        >
-            <div class="detail__pagination-icon">
-                <x-icon-arrow-back-blue />
-            </div>
-        </a>                    
-    @else
-        <p> </p>
-    @endif
-
-    @if($nextPhoto)
-        <a
-            class="detail__pagination-link"
-            href="{{ route('photos.show', $nextPhoto->id) }}"
-        >
-            <div class="detail__pagination-icon">
-                <x-icon-arrow-forward-blue />
-            </div>
+@if($previousPhoto)
+    <div class="detail-image-block__pagination-link left">
+        <a href="{{ route('photos.show', $previousPhoto->id) }}" class="detail-image-block__pagination-icon">
+            <x-icon-arrow-back />
         </a>
-    @else
-        <p> </p>
-    @endif
-</div>   
+    </div>
+@endif
+
+@if($nextPhoto)
+    <div class="detail-image-block__pagination-link right">
+        <a href="{{ route('photos.show', $nextPhoto->id) }}" class="detail-image-block__pagination-icon">
+            <x-icon-arrow-forward />
+        </a>                    
+    </div>
+@endif

@@ -2,23 +2,26 @@
 
 .detail {
     // position: relative;
-    &__pagination {
-        display: flex;
-        justify-content: space-between;
-    }
-    &__pagination-link {
-        border: 2px solid #4281b4;
-        border-radius: 5px;
-        display: block;
-        width: 80px;
-        height: 35px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    &__pagination-icon {
-        // border: 3px solid rgb(165, 187, 201);
-        width: 50px;
+    // &__pagination {
+    //     display: flex;
+    //     justify-content: space-between;
+    // }
+    // &__pagination-link {
+    //     border: 2px solid #4281b4;
+    //     border-radius: 5px;
+    //     display: block;
+    //     width: 80px;
+    //     height: 35px;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+    // &__pagination-icon {
+    //     border: 3px solid rgb(165, 187, 201);
+    //     width: 50px;
+    // }
+    &__title {
+        text-align: center;
     }
     &__description {
         font-size: 18px;
@@ -29,10 +32,12 @@
 .detail__img-block {
     background-color: rgb(233, 233, 233);
     height: 600px;
-    border: 3px solid rgb(165, 187, 201);
+    width: fit-content;
     text-align: center;
+    margin: 0 auto 20px;
     img {
         height: 100%;
+        // max-width: 100%;
     }
     @media (max-width: var.$mobile-max) {     
         height: fit-content;  
@@ -114,3 +119,44 @@
         }  
     }
 }
+
+.detail-image-block {
+    position: relative;
+    &__pagination-link {
+        // background-color: rgba(10, 83, 0, 0.2);
+        // background-color: rgba(255, 255, 255, 0.7);
+        position: absolute;
+        top: 0;
+        width: 44px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s;
+        @media (max-width: var.$mobile-max) {     
+            width: 10%;
+        }  
+        &.left {
+            left: 0;
+        }
+        &.right {
+            right: 0;
+        }
+        &:hover {
+            background-color: rgba(6, 48, 0, 0.2);
+            border: 1px solid green;
+        }
+        &:hover a {
+            opacity: 1;
+        }
+    }
+    &__pagination-icon {
+        // border: 1px solid white;
+        // height: 50px;
+        width: 34px;
+        line-height: 8px;
+        // opacity: 0.5;
+        transition: 0.2s;
+    }
+}
+
