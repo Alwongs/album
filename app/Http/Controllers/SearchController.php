@@ -34,8 +34,8 @@ class SearchController extends Controller
 
         $photos = Photo::where('user_id', $userId)
             ->where(function($query) use ($search_text) {
-                $query->where('description', 'LIKE', '% ' . $search_text . ' %')
-                    ->orWhere('title', 'LIKE', '% ' . $search_text . ' %');
+                $query->where('description', 'LIKE', '% ' . $search_text . '%')
+                    ->orWhere('title', 'LIKE', '% ' . $search_text . '%');
             })
             ->get();
 
