@@ -25,8 +25,8 @@
     }    
     &__close-btn {
         // border: 1px solid white;
-        width: 24px;
-        line-height: 10px;
+        width: 20px;
+        line-height: 8px;
         background-color: transparent;
         color: white;
         cursor: pointer;
@@ -44,14 +44,35 @@
 .navigation {
 
     &__link {
+        border-bottom: 1px solid rgb(86, 107, 128);
         display: block;
         color: rgb(235, 235, 235);
-        font-size: 20px;
+        font-size: 22px;
         letter-spacing: 1px;
         padding: 10px 30px;
         transition: 0.2s;
+        @media (max-width: var.$mobile-max) {  
+            font-size: 44px;   
+        } 
         &:hover {
             background-color: #337b9e;
         }        
+    } 
+}
+
+.auth-navigation {
+    // border: 1px solid green;
+    background-color: rgb(150, 204, 150);
+    display: flex;
+    &__link {
+        display: block;
+        color: rgb(18, 80, 116);
+        font-size: 18px;
+        letter-spacing: 1px;
+        padding: 5px 5px 5px 30px;
+        transition: 0.2s;
+        &:hover {
+            color: rgb(192, 255, 192);
+        }
     } 
 }

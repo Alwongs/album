@@ -6,25 +6,19 @@
     </div>
 
 
-    <div class="top-panel__search">
-        {{-- <div class="top-panel__search-input">
-            <input type="text">
-        </div> --}}
+    {{-- <div class="top-panel__search">
         <a class="top-panel__search-icon" href="{{ route('search-photos') }}">
             <x-icon-search />
         </a>
-    </div>
+    </div> --}}
 
     <div id="top-panel-auth-opener" class="top-panel__auth-opener">
         @Auth
-            <p class="top-panel__auth-label">
-                {{ Auth::user()->name }}
-            </p>
             <div class="top-panel__auth-icon">
-                <x-icon-profile />
+                <x-icon-search />
             </div>
         @else
-            Auth
+            Not authorized
         @endif
     </div>
 </div>

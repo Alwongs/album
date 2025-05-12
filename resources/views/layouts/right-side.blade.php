@@ -1,29 +1,13 @@
 <aside id="right-side" class="right-side">
     <div class="right-side__false-layer mb-2"></div>
 
-    
+    <form class="right-side-search mb-2" action="{{ route('find-photos') }}" method="GET">
+        <div class="right-side-search__input-block">
+            <input type="text" name="search_text">
+        </div>
+        <button class="right-side-search__submit" type="submit">Find</button>
+    </form>
 
-    <nav class="right-side__navigation auth-navigation">     
-        <a
-            class="auth-navigation__link"
-            href="{{ route('profile.edit') }}"
-        >
-            {{ Auth::user() ? Auth::user()->name : 'No athorized' }}
-        </a>
-    
-        @auth
-            <form class="" method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a
-                    class="auth-navigation__link"
-                    href="{{ route('logout') }}"
-                    onclick="event.preventDefault(); this.closest('form').submit();"
-                >
-                    {{ __('Logout') }}
-                </a>
-            </form>
-        @endauth
-    </nav>
 
     <div class="right-side__bottom-btn-block">
         <button id="right-side-closer" class="right-side__close-btn">
