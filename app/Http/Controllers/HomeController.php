@@ -14,20 +14,26 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $authRole = Auth::user() ? Auth::user()->role : false;
-        $accessArray = ['G'];
+        // $authRole = Auth::user() ? Auth::user()->role : false;
+        // $accessArray = ['G'];
 
-        switch ($authRole) {
-            case 'A':
-                $accessArray = ['A', 'F', 'G'];
-                break;
-            case 'F':
-                $accessArray = ['F', 'G'];
-                break;
+        // switch ($authRole) {
+        //     case 'A':
+        //         $accessArray = ['A', 'F', 'G'];
+        //         break;
+        //     case 'F':
+        //         $accessArray = ['F', 'G'];
+        //         break;
+        // }
+
+        // $photos = Photo::whereIn('access', $accessArray)->get();
+        // return view('pages.home.home', compact('photos'));
+
+
+        if (Auth::user()) {
+            return redirect()->route('categories.index');
         }
-
-        $photos = Photo::whereIn('access', $accessArray)->get();
-        return view('pages.home.home', compact('photos'));
+            return redirect()->route('login');
     }
 
 }

@@ -41,11 +41,11 @@
             </div>
     
             <div class="auth-form-btn-block">
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="auth-form-link" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
     
                 <x-submit-button class="">
                     {{ __('Log in') }}
