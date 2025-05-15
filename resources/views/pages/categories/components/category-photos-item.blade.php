@@ -2,6 +2,9 @@
     @if($isAdmin)
         <header class="category-photos-item__header">
             <a class="category-photos-item__edit-btn" href="{{ route('photos.edit', $photo->id) }}">Edit</a>
+
+
+
             <form action="{{ route('photos.destroy', $photo->id) }}" method="POST"  onsubmit="return confirmDelete();">
                 @csrf
                 @method('DELETE')
@@ -26,6 +29,12 @@
             {{ $photo->title }}
         </h2>
     </footer>
+
+    @if($photo->access == 'A')
+        <p class="category-photos-item__label label-admin">{{ $photo->access }}</p>
+    @elseif($photo->access == 'F')
+        <p class="category-photos-item__label label-friend">{{ $photo->access }}</p>
+    @endif
 </div>
 
 <script>
