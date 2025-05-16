@@ -21,6 +21,7 @@
         <img
             src="{{ Storage::url('images/previews/' . $photo->photo) }}"
             alt="{{ $photo->title  }}"
+            loading="lazy"
         />      
     </a>
 
