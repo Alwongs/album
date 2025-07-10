@@ -189,7 +189,7 @@
     position: fixed;
     top: 0; left: 0;
     width: 100vw;
-    height: 100vh; background: rgba(0,0,0,0.8);
+    height: 100vh; background: rgba(0,0,0,0.9);
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -206,26 +206,26 @@
         position: absolute;
         top: 44%;
         left: 50px;
-        width: 44px;
+        width: 34px;
         color: #fff;
         font-size: 30px;
         cursor: pointer;
         @media (max-width: var.$mobile-max) {  
             left: 10px;
-            width: 32px;
+            width: 28px;
         } 
     }
     &__arrow-right {
         position: absolute;
         top: 44%;
         right: 50px;
-        width: 44px;
+        width: 34px;
         color: #fff;
         font-size: 30px;
         cursor: pointer;
         @media (max-width: var.$mobile-max) {  
             right: 10px;
-            width: 32px;
+            width: 28px;
         }         
     }
     &__img {

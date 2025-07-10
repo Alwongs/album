@@ -27,7 +27,7 @@
         const modal = document.getElementById('photoModal');
         const modalImage = document.getElementById('modalImage');
         const modalClose = document.getElementById('modalClose');
-        
+       
         const modalArrowLeft = document.getElementById('modalArrowLeft');
         const modalArrowRight = document.getElementById('modalArrowRight');
 
@@ -46,6 +46,20 @@
                 currentId = Number(img.dataset.id);
             });
         });
+
+
+
+        let startX = 0;
+        let endX = 0;
+
+        modalImage.addEventListener('touchstart', function(e) {
+            startX = e.changedTouches[0].clientX;
+        });
+
+        modalImage.addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });      
 
         modalClose.addEventListener('click', function () {
             modal.style.display = 'none';
@@ -70,6 +84,27 @@
             modalImage.src = basePhotoPath + nextPhoto.photo;
             currentId = Number(nextPhoto.id);
         });
+
+        function handleSwipe() {
+            const diffX = endX - startX;
+            const threshold = 50; // минимальное расстояние для свайпа
+
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+
+                    const nextPhoto = getNextPhoto(photos, currentId);
+                    modalImage.src = basePhotoPath + nextPhoto.photo;
+                    currentId = Number(nextPhoto.id);
+                    console.log('right')
+                } else {
+
+                    const previousPhoto = getPreviousPhoto(photosReverse, currentId);
+                    modalImage.src = basePhotoPath + previousPhoto.photo;
+                    currentId = Number(previousPhoto.id);
+                    console.log('left')
+                }
+            }
+        }          
     });
 
     function getNextPhoto(array, curId) {
