@@ -211,6 +211,7 @@
         font-size: 30px;
         cursor: pointer;
         @media (max-width: var.$mobile-max) {  
+            display: none;
             left: 10px;
             width: 28px;
         } 
@@ -224,6 +225,7 @@
         font-size: 30px;
         cursor: pointer;
         @media (max-width: var.$mobile-max) {  
+            display: none;
             right: 10px;
             width: 28px;
         }         
@@ -231,7 +233,7 @@
     &__img {
         max-width: 80vw;
         max-height: 80vh;
-        border-radius: 8px;
+        // border-radius: 4px;
         @media (max-width: var.$mobile-max) {  
             max-width: 95vw;
             max-height: 95vh;
