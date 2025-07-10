@@ -71,7 +71,13 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
         if (!$isAdmin) {
             $category->photos = $this->photoService->filterPhotosArray($category->photos, $this->auth->role);
         }
-        return view('pages.categories.category', compact('category', 'isAdmin'));
+
+        $categoryIds = [];
+        foreach ($category->photos as $photo) {
+            $categoryIds[] = $photo->id;
+        }
+
+        return view('pages.categories.category', compact('category', 'categoryIds', 'isAdmin'));
 
     }
 

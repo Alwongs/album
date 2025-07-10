@@ -3,8 +3,6 @@
         <header class="category-photos-item__header">
             <a class="category-photos-item__edit-btn" href="{{ route('photos.edit', $photo->id) }}">Edit</a>
 
-
-
             <form action="{{ route('photos.destroy', $photo->id) }}" method="POST"  onsubmit="return confirmDelete();">
                 @csrf
                 @method('DELETE')
@@ -14,16 +12,18 @@
             </form>
         </header>
     @endif
-    <a
-        class="category-photos-item__img-block"
-        href="{{ route('photos.show' , $photo->id) }}"
-    >
+
+    <div class="category-photos-item__img-block">
         <img
             src="{{ Storage::url('images/previews/' . $photo->photo) }}"
             alt="{{ $photo->title  }}"
             loading="lazy"
+            class="category-photo-item"
+            data-full="{{ Storage::url('images/photos/' . $photo->photo) }}"
+            data-id="{{ $photo->id }}"
+            style="cursor: pointer;"            
         />      
-    </a>
+    </div>
 
     <footer class="category-photos-item__footer">
         <h2 class="category-photos-item__title">
