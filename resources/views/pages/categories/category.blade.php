@@ -91,45 +91,46 @@
 
             if (Math.abs(diffX) > threshold) {
                 if (diffX > 0) {
-
                     const nextPhoto = getNextPhoto(photos, currentId);
-                    // modalImage.src = basePhotoPath + nextPhoto.photo;
-
                     animateSwipe('right', basePhotoPath + nextPhoto.photo)
-
                     currentId = Number(nextPhoto.id);
                 } else {
-
                     const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-                    // modalImage.src = basePhotoPath + previousPhoto.photo;
-
                     animateSwipe('left', basePhotoPath + previousPhoto.photo)
-
                     currentId = Number(previousPhoto.id);
                 }
             }
         }
         
         function animateSwipe(direction, newSrc) {
-            console.log('swipe', direction)
-            modalImage.classList.remove('slide-reset');
+            preloadImage(newSrc).then(() => {
+                modalImage.classList.remove('slide-reset');
 
-            // добавляем класс сдвига
-            modalImage.classList.add(direction === 'left' ? 'slide-left' : 'slide-right');
+                modalImage.classList.add(direction === 'left' ? 'slide-left' : 'slide-right');
 
-            // после окончания перехода меняем фото и убираем сдвиг
-            modalImage.addEventListener('transitionend', function handler() {
-                modalImage.removeEventListener('transitionend', handler);
+                // после окончания перехода меняем фото и убираем сдвиг
+                modalImage.addEventListener('transitionend', function handler() {
+                    modalImage.removeEventListener('transitionend', handler);
 
-                // меняем src
-                modalImage.src = newSrc;
+                    modalImage.src = newSrc;
 
-                // убираем класс сдвига и ставим класс с нормальным положением
-                modalImage.classList.remove('slide-left', 'slide-right');
-                modalImage.classList.add('slide-reset');
-            }, { once: true });
+                    modalImage.classList.remove('slide-left', 'slide-right');
+                    modalImage.classList.add('slide-reset');
+                }, { once: true });
+            }).catch(() => {
+                console.warn('Ошибка загрузки изображения:', newSrc);
+                // Можно показать сообщение или просто не менять изображение
+            });
         }
         
+        function preloadImage(src) {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.onload = () => resolve(src);
+                img.onerror = reject;
+                img.src = src;
+            });
+        }        
     });
 
     function getNextPhoto(array, curId) {
