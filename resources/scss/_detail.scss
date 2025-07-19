@@ -242,7 +242,36 @@
     }
 }
 
+// swipe animation styles
+#modalImage {
+    user-select: none; /* чтобы не выделялось при свайпе */ 
+}
 
+.slide-left {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.slide-right {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.slide-reset {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Определяем анимацию с именем fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 
 

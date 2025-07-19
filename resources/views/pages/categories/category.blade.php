@@ -93,18 +93,43 @@
                 if (diffX > 0) {
 
                     const nextPhoto = getNextPhoto(photos, currentId);
-                    modalImage.src = basePhotoPath + nextPhoto.photo;
+                    // modalImage.src = basePhotoPath + nextPhoto.photo;
+
+                    animateSwipe('right', basePhotoPath + nextPhoto.photo)
+
                     currentId = Number(nextPhoto.id);
-                    console.log('right')
                 } else {
 
                     const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-                    modalImage.src = basePhotoPath + previousPhoto.photo;
+                    // modalImage.src = basePhotoPath + previousPhoto.photo;
+
+                    animateSwipe('left', basePhotoPath + previousPhoto.photo)
+
                     currentId = Number(previousPhoto.id);
-                    console.log('left')
                 }
             }
-        }          
+        }
+        
+        function animateSwipe(direction, newSrc) {
+            console.log('swipe', direction)
+            modalImage.classList.remove('slide-reset');
+
+            // добавляем класс сдвига
+            modalImage.classList.add(direction === 'left' ? 'slide-left' : 'slide-right');
+
+            // после окончания перехода меняем фото и убираем сдвиг
+            modalImage.addEventListener('transitionend', function handler() {
+                modalImage.removeEventListener('transitionend', handler);
+
+                // меняем src
+                modalImage.src = newSrc;
+
+                // убираем класс сдвига и ставим класс с нормальным положением
+                modalImage.classList.remove('slide-left', 'slide-right');
+                modalImage.classList.add('slide-reset');
+            }, { once: true });
+        }
+        
     });
 
     function getNextPhoto(array, curId) {
