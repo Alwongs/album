@@ -103,7 +103,9 @@
         }
         
         function animateSwipe(direction, newSrc) {
+            showPreloader();
             preloadImage(newSrc).then(() => {
+                hidePreloader();
                 modalImage.classList.remove('slide-reset');
 
                 modalImage.classList.add(direction === 'left' ? 'slide-left' : 'slide-right');
@@ -118,6 +120,7 @@
                     modalImage.classList.add('slide-reset');
                 }, { once: true });
             }).catch(() => {
+                hidePreloader();
                 console.warn('Ошибка загрузки изображения:', newSrc);
                 // Можно показать сообщение или просто не менять изображение
             });
@@ -161,5 +164,15 @@
             id: array[0].id,
             photo: array[0].photo
         }
+    }
+
+    const preloader = document.getElementById('preloader');
+
+    function showPreloader() {
+        preloader.style.display = 'block';
+    }
+
+    function hidePreloader() {
+        preloader.style.display = 'none';
     }
 </script>
