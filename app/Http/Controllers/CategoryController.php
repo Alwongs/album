@@ -72,13 +72,9 @@ class CategoryController extends Controller implements \Illuminate\Routing\Contr
             $category->photos = $this->photoService->filterPhotosArray($category->photos, $this->auth->role);
         }
 
-        $categoryIds = [];
-        foreach ($category->photos as $photo) {
-            $categoryIds[] = $photo->id;
-        }
+        $categories = Category::where('user_id', $category->user_id)->orderBy('title', 'ASC')->get();       
 
-        return view('pages.categories.category', compact('category', 'categoryIds', 'isAdmin'));
-
+        return view('pages.categories.category', compact('category', 'categories', 'isAdmin'));
     }
 
     public function edit(Category $category)

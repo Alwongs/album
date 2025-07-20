@@ -204,6 +204,31 @@
     }    
 }
 
+.block-category-navigation {
+    // border: 1px solid red;
+    position: absolute;
+    left: 0; top: 0;
+    width: fit-content;
+    @media (max-width: var.$mobile-max) {  
+        display: none;  
+    } 
+    &__link {
+        display: block;
+        font-size: 30px;
+        font-weight: 600;
+        color: rgba(0, 0, 255, 1);
+        margin-bottom: 2px;
+        transition: .2s;
+        &:hover {
+            color: rgba(0, 0, 255, 0.4);            
+        }
+    }  
+    &__link.current {
+        color: rgba(0, 0, 255, 0.2);
+        cursor: default;
+    }  
+}
+
 
 // @media (min-width: $desktop-min) and (max-width: $desktop-max) {
       

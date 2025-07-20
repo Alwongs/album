@@ -5,6 +5,15 @@
     @include('pages.categories.components.header')
 
     <section class="section">
+
+        <nav class="block block-category-navigation">
+            @foreach ($categories as $link)
+                <a href="{{ route('categories.show', $link->id) }}" class="block-category-navigation__link {{ $link->id == $category->id ? 'current' : '' }}">
+                    {{ $link->title }}
+                </a>
+            @endforeach
+        </nav>
+
         <div class="block w-8 category-photos">
 
             @if($category->photos)
@@ -15,6 +24,7 @@
                 <p>no data</p>
             @endif
         </div>
+
     </section>
 
     @include('pages.categories.components.photo-modal')
@@ -46,8 +56,6 @@
                 currentId = Number(img.dataset.id);
             });
         });
-
-
 
         let startX = 0;
         let endX = 0;
@@ -107,15 +115,12 @@
             preloadImage(newSrc).then(() => {
                 hidePreloader();
                 modalImage.classList.remove('slide-reset');
-
                 modalImage.classList.add(direction === 'left' ? 'slide-left' : 'slide-right');
 
                 // после окончания перехода меняем фото и убираем сдвиг
                 modalImage.addEventListener('transitionend', function handler() {
                     modalImage.removeEventListener('transitionend', handler);
-
                     modalImage.src = newSrc;
-
                     modalImage.classList.remove('slide-left', 'slide-right');
                     modalImage.classList.add('slide-reset');
                 }, { once: true });

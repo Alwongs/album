@@ -27,6 +27,7 @@ main {
 .section {
     display: flex;
     justify-content: center;
+    position: relative; // betta version!!!!
 }
 
 .block {
