@@ -35,6 +35,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('photoModal');
+        const modalTitle = document.getElementById('modalTitle');
         const modalImage = document.getElementById('modalImage');
         const modalClose = document.getElementById('modalClose');
        
@@ -52,6 +53,7 @@
             img.addEventListener('click', function () {
                 const img = this.querySelector('img');
                 modalImage.src = img.dataset.full;
+                modalTitle.textContent = img.dataset.title;
                 modal.style.display = 'flex';
                 currentId = Number(img.dataset.id);
             });
@@ -72,24 +74,28 @@
         modalClose.addEventListener('click', function () {
             modal.style.display = 'none';
             modalImage.src = '';
+            modalTitle.textContent = '';
         });
 
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 modal.style.display = 'none';
                 modalImage.src = '';
+                modalTitle.textContent = '';
             }
         });
 
         modalArrowLeft.addEventListener('click', function(e) {
             const previousPhoto = getPreviousPhoto(photosReverse, currentId);
             modalImage.src = basePhotoPath + previousPhoto.photo;
+            modalTitle.textContent = previousPhoto.title;
             currentId = Number(previousPhoto.id);
         });
 
         modalArrowRight.addEventListener('click', function(e) {
             const nextPhoto = getNextPhoto(photos, currentId);
             modalImage.src = basePhotoPath + nextPhoto.photo;
+            modalTitle.textContent = nextPhoto.title;
             currentId = Number(nextPhoto.id);
         });
 
@@ -100,17 +106,17 @@
             if (Math.abs(diffX) > threshold) {
                 if (diffX > 0) {
                     const nextPhoto = getNextPhoto(photos, currentId);
-                    animateSwipe('right', basePhotoPath + nextPhoto.photo)
+                    animateSwipe('right', basePhotoPath + nextPhoto.photo, nextPhoto.title)
                     currentId = Number(nextPhoto.id);
                 } else {
                     const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-                    animateSwipe('left', basePhotoPath + previousPhoto.photo)
+                    animateSwipe('left', basePhotoPath + previousPhoto.photo, previousPhoto.title)
                     currentId = Number(previousPhoto.id);
                 }
             }
         }
         
-        function animateSwipe(direction, newSrc) {
+        function animateSwipe(direction, newSrc, newTitle) {
             showPreloader();
             preloadImage(newSrc).then(() => {
                 hidePreloader();
@@ -121,6 +127,7 @@
                 modalImage.addEventListener('transitionend', function handler() {
                     modalImage.removeEventListener('transitionend', handler);
                     modalImage.src = newSrc;
+                    modalTitle.textContent = newTitle;
                     modalImage.classList.remove('slide-left', 'slide-right');
                     modalImage.classList.add('slide-reset');
                 }, { once: true });
@@ -146,13 +153,15 @@
             if (photo.id > curId) {
                 return {
                     id: photo.id,
-                    photo: photo.photo
+                    photo: photo.photo,
+                    title: photo.title
                 } 
             }
         }
         return {
             id: array[0].id,
-            photo: array[0].photo
+            photo: array[0].photo,
+            title: array[0].title
         }
     }
 
@@ -161,13 +170,15 @@
             if (photo.id < curId) {
                 return {
                     id: photo.id,
-                    photo: photo.photo
+                    photo: photo.photo,
+                    title: photo.title
                 } 
             }
         }
         return {
             id: array[0].id,
-            photo: array[0].photo
+            photo: array[0].photo,
+            title: array[0].title
         }
     }
 

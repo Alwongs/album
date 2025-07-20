@@ -21,6 +21,7 @@
             class="category-photo-item"
             data-full="{{ Storage::url('images/photos/' . $photo->photo) }}"
             data-id="{{ $photo->id }}"
+            data-title="{{ $photo->title }}"
             style="cursor: pointer;"            
         />      
     </div>
