@@ -17,4 +17,8 @@
         </div>
     </section>
 
+    @include('pages.categories.components.photo-modal')    
+
 </x-app-layout>
+
+@include('pages.categories.js.script', ['photos' => $photos])

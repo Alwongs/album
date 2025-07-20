@@ -2,7 +2,7 @@
     
     <span class="photo-modal__close-btn" id="modalClose">&times;</span>
 
-    <h1 id="modalTitle" class="photo-modal__title">{{ $photo->title }}</h1>
+    <h1 id="modalTitle" class="photo-modal__title"></h1>
 
     <img
         class="photo-modal__img"
@@ -11,7 +11,7 @@
         alt="Full photo"
     />
 
-    <p id="modalDescription" class="photo-modal__description">{{ $photo->description }}</p>
+    <p id="modalDescription" class="photo-modal__description"></p>
 
     <span class="photo-modal__arrow-left" id="modalArrowLeft">
         <x-icon-arrow-back />
