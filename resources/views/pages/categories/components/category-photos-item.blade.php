@@ -22,6 +22,7 @@
             data-full="{{ Storage::url('images/photos/' . $photo->photo) }}"
             data-id="{{ $photo->id }}"
             data-title="{{ $photo->title }}"
+            data-description="{{ $photo->description }}"
             style="cursor: pointer;"            
         />      
     </div>

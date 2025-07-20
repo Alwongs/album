@@ -36,6 +36,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('photoModal');
         const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
         const modalImage = document.getElementById('modalImage');
         const modalClose = document.getElementById('modalClose');
        
@@ -54,6 +55,7 @@
                 const img = this.querySelector('img');
                 modalImage.src = img.dataset.full;
                 modalTitle.textContent = img.dataset.title;
+                modalDescription.textContent = img.dataset.description;
                 modal.style.display = 'flex';
                 currentId = Number(img.dataset.id);
             });
@@ -75,6 +77,7 @@
             modal.style.display = 'none';
             modalImage.src = '';
             modalTitle.textContent = '';
+            modalDescription.textContent = '';
         });
 
         modal.addEventListener('click', function(e) {
@@ -82,22 +85,27 @@
                 modal.style.display = 'none';
                 modalImage.src = '';
                 modalTitle.textContent = '';
+                modalDescription.textContent = '';
             }
         });
 
         modalArrowLeft.addEventListener('click', function(e) {
             const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-            modalImage.src = basePhotoPath + previousPhoto.photo;
-            modalTitle.textContent = previousPhoto.title;
+            setPhotoAttributes(basePhotoPath + previousPhoto.photo, previousPhoto.title, previousPhoto.description)
             currentId = Number(previousPhoto.id);
         });
 
         modalArrowRight.addEventListener('click', function(e) {
             const nextPhoto = getNextPhoto(photos, currentId);
-            modalImage.src = basePhotoPath + nextPhoto.photo;
-            modalTitle.textContent = nextPhoto.title;
+            setPhotoAttributes(basePhotoPath + nextPhoto.photo, nextPhoto.title, nextPhoto.description)
             currentId = Number(nextPhoto.id);
         });
+
+        function setPhotoAttributes(src, title, description) {
+            modalImage.src = src;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;            
+        }
 
         function handleSwipe() {
             const diffX = endX - startX;
@@ -106,17 +114,17 @@
             if (Math.abs(diffX) > threshold) {
                 if (diffX > 0) {
                     const nextPhoto = getNextPhoto(photos, currentId);
-                    animateSwipe('right', basePhotoPath + nextPhoto.photo, nextPhoto.title)
+                    animateSwipe('right', basePhotoPath + nextPhoto.photo, nextPhoto.title, nextPhoto.description)
                     currentId = Number(nextPhoto.id);
                 } else {
                     const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-                    animateSwipe('left', basePhotoPath + previousPhoto.photo, previousPhoto.title)
+                    animateSwipe('left', basePhotoPath + previousPhoto.photo, previousPhoto.title, previousPhoto.description)
                     currentId = Number(previousPhoto.id);
                 }
             }
         }
         
-        function animateSwipe(direction, newSrc, newTitle) {
+        function animateSwipe(direction, newSrc, newTitle, newDescription) {
             showPreloader();
             preloadImage(newSrc).then(() => {
                 hidePreloader();
@@ -126,8 +134,9 @@
                 // после окончания перехода меняем фото и убираем сдвиг
                 modalImage.addEventListener('transitionend', function handler() {
                     modalImage.removeEventListener('transitionend', handler);
-                    modalImage.src = newSrc;
-                    modalTitle.textContent = newTitle;
+
+                    setPhotoAttributes(newSrc, newTitle, newDescription)
+
                     modalImage.classList.remove('slide-left', 'slide-right');
                     modalImage.classList.add('slide-reset');
                 }, { once: true });
@@ -151,34 +160,28 @@
     function getNextPhoto(array, curId) {
         for (let photo of array) {
             if (photo.id > curId) {
-                return {
-                    id: photo.id,
-                    photo: photo.photo,
-                    title: photo.title
-                } 
+                return photo;
             }
         }
         return {
             id: array[0].id,
             photo: array[0].photo,
-            title: array[0].title
+            title: array[0].title,
+            description: array[0].description
         }
     }
 
     function getPreviousPhoto(array, curId) {
         for (let photo of array) {
             if (photo.id < curId) {
-                return {
-                    id: photo.id,
-                    photo: photo.photo,
-                    title: photo.title
-                } 
+                return photo;
             }
         }
         return {
             id: array[0].id,
             photo: array[0].photo,
-            title: array[0].title
+            title: array[0].title,
+            description: array[0].description
         }
     }
 

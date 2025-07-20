@@ -197,19 +197,31 @@
     &__close-btn {
         position: absolute;
         top: 20px;
-        right: 30px; 
-        color: #fff;
+        right: 20px; 
+        color: #eee;
         font-size: 30px;
         cursor: pointer;
     }
     &__title {
         position: absolute;
         top: 20px;
-        left: 50vw; 
-        transform: translateX(-50%);
-        color: #fff;
+        left: 0; 
+        padding: 10px;
+        // transform: translateX(-50%);
+        color: #ddd;
         font-size: 24px;
         font-weight: 400;
+    }
+
+    &__description {
+        position: absolute;
+        bottom: 20px;
+        left: 0; 
+        padding: 10px;
+        // transform: translateX(-50%);
+        color: #ddd;
+        font-size: 16px;
+        font-weight: 300;
     }
 
     &__arrow-left {

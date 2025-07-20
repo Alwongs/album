@@ -11,6 +11,8 @@
         alt="Full photo"
     />
 
+    <p id="modalDescription" class="photo-modal__description">{{ $photo->description }}</p>
+
     <span class="photo-modal__arrow-left" id="modalArrowLeft">
         <x-icon-arrow-back />
     </span>
