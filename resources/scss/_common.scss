@@ -27,7 +27,10 @@ main {
 .section {
     display: flex;
     justify-content: center;
-    position: relative; // betta version!!!!
+    position: relative; 
+    @media (max-width: var.$tablet-max) {  
+        flex-direction: column;
+    }       
 }
 
 .block {
