@@ -6,13 +6,16 @@
 
     <section class="section">
 
-        <nav class="block block-category-navigation">
-            @foreach ($categories as $link)
-                <a href="{{ route('categories.show', $link->id) }}" class="block-category-navigation__link {{ $link->id == $category->id ? 'current' : '' }}">
-                    {{ $link->title }}
-                </a>
-            @endforeach
-        </nav>
+        <div class="block-category-navigation-container">
+            <nav class="block block-category-navigation">
+                @foreach ($categories as $link)
+                    <a href="{{ route('categories.show', $link->id) }}" class="block-category-navigation__link {{ $link->id == $category->id ? 'current' : '' }}">
+                        {{ $link->title }}
+                    </a>
+                @endforeach
+            </nav>
+            <div class="scroll-hint">Проведите пальцем влево, чтобы увидеть больше →</div>
+        </div>
 
         <div class="block w-8 category-photos">
 

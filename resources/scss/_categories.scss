@@ -204,6 +204,19 @@
     }    
 }
 
+.block-category-navigation-container {
+    // display: none;
+    @media (max-width: var.$tablet-max) {
+        // border: 1px solid red;
+        display: block;
+        // width: 100vw;
+        padding: 5px 0;
+        margin-bottom: 20px;  
+        // border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+    }      
+}
+
 .block-category-navigation {
     // border: 1px solid red;
     position: absolute;
@@ -213,7 +226,7 @@
         display: block;
         font-size: 30px;
         font-weight: 600;
-        color: rgba(0, 0, 255, 1);
+        color: rgb(0, 64, 255);
         margin-bottom: 2px;
         transition: .2s;
         &:hover {
@@ -225,31 +238,12 @@
         cursor: default;
     }  
 
-    // @media (max-width: var.$mobile-max) {
-    //     position: static;
-    //     display: flex;
-    //     width: 100%;
-    //     gap: 20px;
-    //     margin-bottom: 20px;
-    //     overflow-x: auto;           /* вертикальная прокрутка при необходимости */
-    //     -webkit-overflow-scrolling: touch; /* плавная прокрутка на iOS */
-        
-    //     /* Скрываем полосы прокрутки */
-    //     scrollbar-width: none;      /* Firefox */
-    //     -ms-overflow-style: none;   /* IE и Edge */
-
-    //     &::-webkit-scrollbar {
-    //         display: none;              /* Chrome, Safari, Opera */
-    //     }
-    // } 
-
     @media (max-width: var.$tablet-max) {  
-                position: static;
+        position: relative;
         display: flex;
         width: 100%;
-        gap: 20px;
-        margin-bottom: 20px;
-        overflow-x: auto;           /* вертикальная прокрутка при необходимости */
+        gap: 10px;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch; /* плавная прокрутка на iOS */
         
         /* Скрываем полосы прокрутки */
@@ -259,7 +253,49 @@
         &::-webkit-scrollbar {
             display: none;              /* Chrome, Safari, Opera */
         }
-    }      
+        animation: shakeScroll 1s ease forwards;
+
+
+        &__link {
+            display: inline-block;
+            width: 120px;
+            height: 34px;
+            padding: 0 10px;
+            background-color: rgb(198, 220, 237);
+            line-height: 34px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 0;
+        }
+    }   
+
+ 
+}
+
+
+.scroll-hint {
+    display: none;
+    @media (max-width: var.$tablet-max) {
+        display: block;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        font-size: 12px;
+        color: #666;
+        user-select: none;
+        text-align: center;
+        font-style: italic;      
+    }  
+}
+
+@keyframes shakeScroll {
+    0%   { transform: translateX(0); }
+    20%  { transform: translateX(-20px); }
+    40%  { transform: translateX(0); }
+    60%  { transform: translateX(-10px); }
+    80%  { transform: translateX(0); }
+    100% { transform: translateX(0); }
 }
 
 
