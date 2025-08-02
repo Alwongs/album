@@ -50,13 +50,15 @@
 
         modalArrowLeft.addEventListener('click', function(e) {
             const previousPhoto = getPreviousPhoto(photosReverse, currentId);
-            setPhotoAttributes(basePhotoPath + previousPhoto.photo, previousPhoto.title, previousPhoto.description)
+            animateSwipe('left', basePhotoPath + previousPhoto.photo, previousPhoto.title, previousPhoto.description)
+            // setPhotoAttributes(basePhotoPath + previousPhoto.photo, previousPhoto.title, previousPhoto.description)
             currentId = Number(previousPhoto.id);
         });
 
         modalArrowRight.addEventListener('click', function(e) {
             const nextPhoto = getNextPhoto(photos, currentId);
-            setPhotoAttributes(basePhotoPath + nextPhoto.photo, nextPhoto.title, nextPhoto.description)
+            animateSwipe('right', basePhotoPath + nextPhoto.photo, nextPhoto.title, nextPhoto.description)
+            // setPhotoAttributes(basePhotoPath + nextPhoto.photo, nextPhoto.title, nextPhoto.description)
             currentId = Number(nextPhoto.id);
         });
 

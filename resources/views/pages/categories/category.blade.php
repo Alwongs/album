@@ -14,7 +14,7 @@
                     </a>
                 @endforeach
             </nav>
-            <div class="scroll-hint">Проведите пальцем влево, чтобы увидеть больше →</div>
+            {{-- <div class="scroll-hint">Проведите пальцем влево, чтобы увидеть больше →</div> --}}
         </div>
 
         <div class="block w-8 category-photos">
